@@ -1,0 +1,9 @@
+C:\Users\s2653956\source\repos\PayWeeksAndDates\PayWeeksAndDates\bin\Debug\PayWeeksAndDates.exe.config
+C:\Users\s2653956\source\repos\PayWeeksAndDates\PayWeeksAndDates\bin\Debug\PayWeeksAndDates.exe
+C:\Users\s2653956\source\repos\PayWeeksAndDates\PayWeeksAndDates\bin\Debug\PayWeeksAndDates.pdb
+C:\Users\s2653956\source\repos\PayWeeksAndDates\PayWeeksAndDates\obj\Debug\PayWeeksAndDates.csprojAssemblyReference.cache
+C:\Users\s2653956\source\repos\PayWeeksAndDates\PayWeeksAndDates\obj\Debug\PayWeeksAndDates.Properties.Resources.resources
+C:\Users\s2653956\source\repos\PayWeeksAndDates\PayWeeksAndDates\obj\Debug\PayWeeksAndDates.csproj.GenerateResource.cache
+C:\Users\s2653956\source\repos\PayWeeksAndDates\PayWeeksAndDates\obj\Debug\PayWeeksAndDates.csproj.CoreCompileInputs.cache
+C:\Users\s2653956\source\repos\PayWeeksAndDates\PayWeeksAndDates\obj\Debug\PayWeeksAndDates.exe
+C:\Users\s2653956\source\repos\PayWeeksAndDates\PayWeeksAndDates\obj\Debug\PayWeeksAndDates.pdb
