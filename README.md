@@ -1,6 +1,6 @@
 # PayDates
 by  Sean Lennon (https://github.com/s-lenno/)
- * This basic program, driven by its main class PayWeeksAndDates/Program.cs, is used to output each of my paydays in respect to the yearly calendar in my current job. 
+ * This basic program, driven by its main program file PayWeeksAndDates/Program.cs, is used to output each of my paydays in respect to the yearly calendar in my current job. 
  * It generates week numbers with corresponding dates, simulating a pay schedule starting from a specified week number and date. 
  * The pay schedule initally starts at 9 because I had joined the company in February.
  * The WeekNumberGenerator class is responsible for calculating and printing the week numbers along with their respective dates and line numbers. 
