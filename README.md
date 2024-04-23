@@ -14,10 +14,11 @@ by  Sean Lennon (https://github.com/s-lenno/)
     6. Program ends once the specified range of dates have been output.
 
    Output:
-    Week 9 = 29 February 2024 = Payslip 1
-    Week 17 = 25 April 2024 = Payslip 3
-    Week 45 = 07 November 2024 = Payslip 10
+   
+    Week 9 = 29 February 2024 = Payslip 1,
+    Week 17 = 25 April 2024 = Payslip 3,
+    Week 45 = 07 November 2024 = Payslip 10,
     ...
-    Week 1 = 02 January 2025 = Payslip 1
+    Week 1 = 02 January 2025 = Payslip 1, etc...
 */
 
