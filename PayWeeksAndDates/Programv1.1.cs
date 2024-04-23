@@ -1,4 +1,7 @@
-﻿using System;
+/*Version 1.1
+Delete comments & program.cs to utilise.
+
+using System;
 using System.Globalization;
 
 public class PayWeeksGenerator
@@ -43,3 +46,5 @@ public class Program
         generator.GeneratePayWeeks();
     }
 }
+
+*/
