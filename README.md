@@ -1,4 +1,5 @@
 # PayDates
+by  Sean Lennon (https://github.com/s-lenno/)
  * This basic program is used to output each of my paydays in respect to the yearly calendar in my current job. 
  * It generates week numbers with corresponding dates, simulating a pay schedule starting from a specified week number and date. 
  * The pay schedule initally starts at 9 becasue I had joined the company in February.
@@ -19,4 +20,4 @@
     ...
     Week 1 = 02 January 2025 = Payslip 1
 */
-by  Sean Lennon (https://github.com/s-lenno/)
+
