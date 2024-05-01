@@ -27,8 +27,8 @@ public class PayWeeks
     public void GenerateWeekNumbers()
     {
 
-        DateTime startDate = new DateTime(2024, 2, 29); // Thursday 29th February 2024 - First pay date
-        DateTime endDate = new DateTime(2025, 4, 1); // 
+        DateTime startDate = new DateTime(2024, 2, 29); // Thursday 29th February 2024 - First specified pay date (Payslip 1)
+        DateTime endDate = new DateTime(2025, 1, 31); // Thursday 30th January 2025 - Last specified pay date (Payslip 13)
 
         int startWeekNumber = 9;
         int lineNumber = 1;
@@ -39,7 +39,7 @@ public class PayWeeks
             int adjustedWeekNumber = (currentWeekNumber) % 52;
 
             Console.WriteLine($"Week {adjustedWeekNumber} = {startDate:dd MMMM yyyy} = Payslip {lineNumber}"); 
-            startDate = startDate.AddDays(28); // Increment by exactly 4 weeks at a time 
+            startDate = startDate.AddDays(28); // Increment by exactly 28 days / 4 weeks at a time 
             lineNumber++;
         }
     }
