@@ -1,10 +1,10 @@
-﻿using System;
-/*Payslip code
+﻿/*Payslip code
  * Sean Lennon (https://github.com/s-lenno/)
  * This basic program is used to output each of my paydays in respect to the yearly calendar in my current job. 
  * It generates week numbers with corresponding dates, simulating a pay schedule starting from a specified week number and date. 
  * The pay schedule initally starts at 9 becasue I had joined the company in February.
- * The WeekNumberGenerator class is responsible for calculating and printing the week numbers along with their respective dates and line numbers. 
+ * The WeekNumberGenerator class is responsible for calculating and printing the week numbers along with their respective dates and line numbers.
+ * **UPDATE** v 2.02 - Added functionality to process salary
 
     How the program works:
     1. Define the start week number, start date (Thursday), and end date.
@@ -21,27 +21,69 @@
     ...
     Week 1 = 02 January 2025 = Payslip 1
 */
+using System;
 
 public class PayWeeks
 {
-    public void GenerateWeekNumbers()
-    {
+    private const int StartWeekNumber = 9;
+    private const int PaidHoursPerPeriod = 144;
+    private const double PayRate = 21.5306;
+    private const double PensionContributionRate = 0.92;
+    private const double NationalInsuranceDeduction = 150.83;
+    private const double StudentLoanDeduction = 83.00;
+    private const double UniteDeduction = 14.68;
+    private const double IncomeTaxDeduction = 376.80;
+    private const int WeeksPerYear = 52;
 
+    public void Generate()
+    {
         DateTime startDate = new DateTime(2024, 2, 29); // Thursday 29th February 2024 - First specified pay date (Payslip 1)
         DateTime endDate = new DateTime(2025, 1, 31); // Thursday 30th January 2025 - Last specified pay date (Payslip 13)
 
-        int startWeekNumber = 9;
         int lineNumber = 1;
+
+        double totalBeforeTax = 0;
+        double totalAfterTax = 0;
+        double totalTakeHomePay = 0;
 
         while (startDate < endDate)
         {
-            int currentWeekNumber = startWeekNumber + ((lineNumber - 1) * 4);
-            int adjustedWeekNumber = (currentWeekNumber) % 52;
+            int currentWeekNumber = StartWeekNumber + ((lineNumber - 1) * 4);
+            int adjustedWeekNumber = currentWeekNumber % WeeksPerYear;
 
-            Console.WriteLine($"Week {adjustedWeekNumber} = {startDate:dd MMMM yyyy} = Payslip {lineNumber}"); 
-            startDate = startDate.AddDays(28); // Increment by exactly 28 days / 4 weeks at a time 
+            double salaryBeforeTax = CalculateBeforeTaxSalary();
+            double salaryAfterTax = CalculateAfterTaxSalary(salaryBeforeTax);
+
+            if (adjustedWeekNumber <= WeeksPerYear)
+            {
+                totalBeforeTax += salaryBeforeTax;
+                totalAfterTax += salaryAfterTax;
+            }
+
+            totalTakeHomePay += salaryAfterTax;
+
+            salaryBeforeTax = Math.Round(salaryBeforeTax, 2);
+            salaryAfterTax = Math.Round(salaryAfterTax, 2);
+
+            Console.WriteLine($"Week {adjustedWeekNumber} = {startDate:dd MMMM yyyy} = Payslip {lineNumber} \n Before tax: {salaryBeforeTax} \n After tax: {salaryAfterTax}");
+            startDate = startDate.AddDays(28); // Increment by exactly 28 days / 4 weeks at a time
             lineNumber++;
         }
+
+        // Print totals
+        Console.WriteLine($"\nTotal this year before tax: {totalBeforeTax.ToString("N2")}");
+        Console.WriteLine($"Total this year after tax: {totalAfterTax.ToString("N2")}");
+        Console.WriteLine($"Total take home after tax altogether: {totalTakeHomePay.ToString("N2")}");
+    }
+
+    private double CalculateBeforeTaxSalary()
+    {
+        return (PayRate * PaidHoursPerPeriod) * PensionContributionRate;
+    }
+
+    private double CalculateAfterTaxSalary(double beforeTaxSalary)
+    {
+        return beforeTaxSalary - (NationalInsuranceDeduction + IncomeTaxDeduction + StudentLoanDeduction + UniteDeduction);
     }
 }
 
@@ -50,6 +92,6 @@ class Program
     static void Main(string[] args)
     {
         PayWeeks generator = new PayWeeks();
-        generator.GenerateWeekNumbers();
+        generator.Generate();
     }
 }
