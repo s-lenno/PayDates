@@ -3,7 +3,7 @@ by  Sean Lennon (https://github.com/s-lenno/)
 
  * This basic program is used to output each of my paydays in respect to the yearly calendar in my current job. 
  * It generates week numbers with corresponding dates, simulating a pay schedule starting from a specified week number and date. 
- * The pay schedule initally starts at 9 becasue I had joined the company in February.
+ * The pay schedule initally starts at 9 because I had joined the company in February.
  * The Generate() method is responsible for calculating and printing the week numbers along with their respective dates and line numbers.
  * **UPDATE** v 2.02 - Code added to process salary
  * **UPDATE** v 2.42 - Additional comments added & redundant code chopped to optimise performance.
