@@ -1,4 +1,5 @@
-﻿/* Payslip code
+﻿/* 
+ * Payslip code
  * Sean Lennon (https://github.com/s-lenno/)
  * This basic program is used to output each of my paydays in respect to the yearly calendar in my current job. 
  * It generates week numbers with corresponding dates, simulating a pay schedule starting from a specified week number and date. 
@@ -20,8 +21,9 @@
     Week 17 = 25 April 2024 = Payslip 3
     Week 45 = 07 November 2024 = Payslip 10
     ...
-    Week 1 = 02 January 2025 = Payslip 1
-*/
+    Week 9 = 27 February 2025 = Payslip 14 
+    */
+
 using System;
 
 public class PayWeeks
@@ -40,7 +42,7 @@ public class PayWeeks
     public void Generate()
     {
         DateTime startDate = new DateTime(2024, 2, 29); // Thursday 29th February 2024 - First specified pay date (Payslip 1)
-        DateTime endDate = new DateTime(2025, 2, 28); // Thursday 30th January 2025 - Last specified pay date (Payslip 13)
+        DateTime endDate = new DateTime(2025, 2, 28); // Thursday 27th February 2025 - Last specified pay date (Payslip 14)
 
         int lineNumber = 1;
 
