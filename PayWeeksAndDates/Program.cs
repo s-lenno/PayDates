@@ -3,7 +3,7 @@
  * Sean Lennon (https://github.com/s-lenno/)
  * This basic program is used to output each of my paydays in respect to the yearly calendar in my current job. 
  * It generates week numbers with corresponding dates, simulating a pay schedule starting from a specified week number and date. 
- * The pay schedule initally starts at 9 becasue I had joined the company in February.
+ * The pay schedule initally starts at 9 because I had joined the company in February.
  * The Generate() method is responsible for calculating and printing the week numbers along with their respective dates and line numbers.
  * **UPDATE** v 2.02 - Code added to process salary
  * **UPDATE** v 2.42 - Additional comments added & redundant code chopped to optimise performance.
@@ -31,7 +31,7 @@ public class PayWeeks
     private const int StartWeekNumber = 9; // Week 9 was my first pay week
     private const int WeeksInAPeriod = 4; // 4 weeks' work paid for
     private const int PaidHoursPerPeriod = 144; // 36 hours in  work week * 4  weeks = 144 hours pay per period/
-    private const double PayRate = 21.5306; //Hourly rate £
+    private const double PayRate = 11.44; //Hourly rate £
     private const double PensionContributionRate = 0.92; // 100% Salary - 8% Contribution at source via salary sacrifice = 92% (0.92)
     private const double NationalInsuranceDeduction = 150.83;
     private const double StudentLoanDeduction = 83.00;
