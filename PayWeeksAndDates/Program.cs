@@ -28,16 +28,16 @@ using System;
 
 public class PayWeeks
 {
-    private const int StartWeekNumber = 9; // Week 9 was my first pay week
+    private const int StartWeekNumber = 9; // Week 9 was my first pay week, so program specified to begin here
     private const int WeeksInAPeriod = 4; // 4 weeks' work paid for
-    private const int PaidHoursPerPeriod = 144; // 36 hours in  work week * 4  weeks = 144 hours pay per period/
-    private const double PayRate = 11.44; //Hourly rate £
+    private const int PaidHoursPerPeriod = 144; // 36 hours in  work week * 4  weeks = 144 hours pay per period
+    private const double PayRate = 21.5306; //Hourly rate in £ sterling
     private const double PensionContributionRate = 0.92; // 100% Salary - 8% Contribution at source via salary sacrifice = 92% (0.92)
-    private const double NationalInsuranceDeduction = 150.83;
-    private const double StudentLoanDeduction = 83.00;
-    private const double UniteDeduction = 14.68;
-    private const double IncomeTaxDeduction = 376.80;
-    private const int WeeksPerYear = 52;
+    private const double IncomeTaxDeduction = 376.80; // Monthly income tax deduction
+    private const double NationalInsuranceDeduction = 150.83; // Monthly NI deduction
+    private const double StudentLoanDeduction = 83.00;// Monthly SLC deduction
+    private const double UniteDeduction = 14.68; // Monthly union fee
+    private const int WeeksPerYear = 52; //Assigned as a variable for easy direct comparison with adjustedWeekNumber
 
     public void Generate()
     {
@@ -45,7 +45,6 @@ public class PayWeeks
         DateTime endDate = new DateTime(2025, 2, 28); // Thursday 27th February 2025 - Last specified pay date (Payslip 14)
 
         int lineNumber = 1;
-
         double totalBeforeTax = 0;
         double totalAfterTax = 0;
 
@@ -92,6 +91,6 @@ class Program
     static void Main(string[] args)
     {
         PayWeeks generator = new PayWeeks();
-        generator.Generate();
+        generator.Generate(); 
     }
 }
