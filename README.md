@@ -1,9 +1,12 @@
 # PayDates
 by  Sean Lennon (https://github.com/s-lenno/)
- * This basic program, driven by its main program file PayWeeksAndDates/Program.cs, is used to output each of my paydays in respect to the yearly calendar in my current job. 
+
+ * This basic program is used to output each of my paydays in respect to the yearly calendar in my current job. 
  * It generates week numbers with corresponding dates, simulating a pay schedule starting from a specified week number and date. 
- * The pay schedule initally starts at 9 because I had joined the company in February.
- * The WeekNumberGenerator class is responsible for calculating and printing the week numbers along with their respective dates and line numbers. 
+ * The pay schedule initally starts at 9 becasue I had joined the company in February.
+ * The Generate() method is responsible for calculating and printing the week numbers along with their respective dates and line numbers.
+ * **UPDATE** v 2.02 - Code added to process salary
+ * **UPDATE** v 2.42 - Additional comments added & redundant code chopped to optimise performance.
 
     How the program works:
     1. Define the start week number, start date (Thursday), and end date.
@@ -14,11 +17,10 @@ by  Sean Lennon (https://github.com/s-lenno/)
     6. Program ends once the specified range of dates have been output.
 
    Output:
-   
-    Week 9 = 29 February 2024 = Payslip 1,
-    Week 17 = 25 April 2024 = Payslip 3,
-    Week 45 = 07 November 2024 = Payslip 10,
+    Week 9 = 29 February 2024 = Payslip 1
+    Week 17 = 25 April 2024 = Payslip 3
+    Week 45 = 07 November 2024 = Payslip 10
     ...
-    Week 1 = 02 January 2025 = Payslip 1, etc...
-*/
+    Week 9 = 27 February 2025 = Payslip 14 
+    */
 
