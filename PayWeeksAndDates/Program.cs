@@ -1,10 +1,11 @@
-﻿/*Payslip code
+﻿/* Payslip code
  * Sean Lennon (https://github.com/s-lenno/)
  * This basic program is used to output each of my paydays in respect to the yearly calendar in my current job. 
  * It generates week numbers with corresponding dates, simulating a pay schedule starting from a specified week number and date. 
  * The pay schedule initally starts at 9 becasue I had joined the company in February.
- * The WeekNumberGenerator class is responsible for calculating and printing the week numbers along with their respective dates and line numbers.
- * **UPDATE** v 2.02 - Added functionality to process salary
+ * The Generate() method is responsible for calculating and printing the week numbers along with their respective dates and line numbers.
+ * **UPDATE** v 2.02 - Code added to process salary
+ * **UPDATE** v 2.42 - Additional comments added & redundant code chopped to optimise performance.
 
     How the program works:
     1. Define the start week number, start date (Thursday), and end date.
@@ -25,10 +26,11 @@ using System;
 
 public class PayWeeks
 {
-    private const int StartWeekNumber = 9;
-    private const int PaidHoursPerPeriod = 144;
-    private const double PayRate = 21.5306;
-    private const double PensionContributionRate = 0.92;
+    private const int StartWeekNumber = 9; // Week 9 was my first pay week
+    private const int WeeksInAPeriod = 4; // 4 weeks' work paid for
+    private const int PaidHoursPerPeriod = 144; // 36 hours in  work week * 4  weeks = 144 hours pay per period/
+    private const double PayRate = 21.5306; //Hourly rate £
+    private const double PensionContributionRate = 0.92; // 100% Salary - 8% Contribution at source via salary sacrifice = 92% (0.92)
     private const double NationalInsuranceDeduction = 150.83;
     private const double StudentLoanDeduction = 83.00;
     private const double UniteDeduction = 14.68;
@@ -38,18 +40,17 @@ public class PayWeeks
     public void Generate()
     {
         DateTime startDate = new DateTime(2024, 2, 29); // Thursday 29th February 2024 - First specified pay date (Payslip 1)
-        DateTime endDate = new DateTime(2025, 1, 31); // Thursday 30th January 2025 - Last specified pay date (Payslip 13)
+        DateTime endDate = new DateTime(2025, 2, 28); // Thursday 30th January 2025 - Last specified pay date (Payslip 13)
 
         int lineNumber = 1;
 
         double totalBeforeTax = 0;
         double totalAfterTax = 0;
-        double totalTakeHomePay = 0;
 
         while (startDate < endDate)
         {
-            int currentWeekNumber = StartWeekNumber + ((lineNumber - 1) * 4);
-            int adjustedWeekNumber = currentWeekNumber % WeeksPerYear;
+            int currentWeekNumber = StartWeekNumber + ((lineNumber - 1) * WeeksInAPeriod);
+            int adjustedWeekNumber = currentWeekNumber % WeeksPerYear; // If week number is over 52 (passed end of December), wrap back around to restart at week 1 ( inJanuary)
 
             double salaryBeforeTax = CalculateBeforeTaxSalary();
             double salaryAfterTax = CalculateAfterTaxSalary(salaryBeforeTax);
@@ -60,20 +61,17 @@ public class PayWeeks
                 totalAfterTax += salaryAfterTax;
             }
 
-            totalTakeHomePay += salaryAfterTax;
-
             salaryBeforeTax = Math.Round(salaryBeforeTax, 2);
             salaryAfterTax = Math.Round(salaryAfterTax, 2);
 
-            Console.WriteLine($"Week {adjustedWeekNumber} = {startDate:dd MMMM yyyy} = Payslip {lineNumber} \n Before tax: {salaryBeforeTax} \n After tax: {salaryAfterTax}");
+            Console.WriteLine($"\nWeek {adjustedWeekNumber} = {startDate:dd MMMM yyyy} = Payslip {lineNumber} \n Before tax: £{salaryBeforeTax} \n After tax: £{salaryAfterTax}");
             startDate = startDate.AddDays(28); // Increment by exactly 28 days / 4 weeks at a time
             lineNumber++;
         }
 
         // Print totals
-        Console.WriteLine($"\nTotal this year before tax: {totalBeforeTax.ToString("N2")}");
-        Console.WriteLine($"Total this year after tax: {totalAfterTax.ToString("N2")}");
-        Console.WriteLine($"Total take home after tax altogether: {totalTakeHomePay.ToString("N2")}");
+        Console.WriteLine($"\nTotal this year before tax: £{totalBeforeTax.ToString("N2")}");
+        Console.WriteLine($"Total this year after tax: £{totalAfterTax.ToString("N2")}");
     }
 
     private double CalculateBeforeTaxSalary()
