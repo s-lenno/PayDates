@@ -52,7 +52,7 @@ public class PayWeeks
         while (startDate < endDate)
         {
             int currentWeekNumber = StartWeekNumber + ((lineNumber - 1) * WeeksInAPeriod);
-            int adjustedWeekNumber = currentWeekNumber % WeeksPerYear; // If week number is over 52 (passed end of December), wrap back around to restart at week 1 ( inJanuary)
+            int adjustedWeekNumber = currentWeekNumber % WeeksPerYear; // If week number is over 52 (passed end of December), wrap back around to restart at week 1 (in January)
 
             double salaryBeforeTax = CalculateBeforeTaxSalary();
             double salaryAfterTax = CalculateAfterTaxSalary(salaryBeforeTax);
