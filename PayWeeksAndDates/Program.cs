@@ -7,6 +7,7 @@
  * The Generate() method is responsible for calculating and printing the week numbers along with their respective dates and line numbers.
  * **UPDATE** v 2.02 - Code added to process salary
  * **UPDATE** v 2.42 - Additional comments added & redundant code chopped to optimise performance.
+ * **UPDATE** v 2.43 - Fixed typos.
 
     How the program works:
     1. Define the start week number, start date (Thursday), and end date.
@@ -37,7 +38,7 @@ public class PayWeeks
     private const double NationalInsuranceDeduction = 150.83; // Monthly NI deduction
     private const double StudentLoanDeduction = 83.00;// Monthly SLC deduction
     private const double UniteDeduction = 14.68; // Monthly union fee
-    private const int WeeksPerYear = 52; //Assigned as a variable for easy direct comparison with adjustedWeekNumber
+    private const int WeeksPerYear = 52; // Weeks in a year assigned as a constant for easy direct comparison with adjustedWeekNumber
 
     public void Generate()
     {
